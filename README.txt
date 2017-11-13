@@ -4,7 +4,7 @@ PolyQTL is a statistical method to perform multiple eQTL detection, and it has a
 
 This repository contains source code, and sample data, and the step to run it. If you have any questions or comments, please contact bzeng30@gatech.edu or greg.gibson@biology.gatech.edu
 
-![Structure of PolyQTL package](Structure_PolyQTL.png)
+![Screenshot](Structure_PolyQTL.png)
 
 ## License
 
