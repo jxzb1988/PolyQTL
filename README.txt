@@ -1,5 +1,5 @@
 
-    ![](Structure_PolyQTL.png)
+![](Structure_PolyQTL.png)
 
 # PolyQTL: A Bayesian method to detect multiple eQTL with control for population structure and relatedness
 
