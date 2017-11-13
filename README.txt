@@ -12,7 +12,7 @@ Software distributed under the terms of the GNU General Public License as publis
 
 GCC >=4.7.0, C++ library openmp are needed. 
 
-There is a Makefile, and you can just run make to install the package.
+There is a Makefile, and you can just run "make" to install the package.
 
 #### Running
 
