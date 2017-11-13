@@ -1,7 +1,6 @@
 # PolyQTL: A Bayesian method to detect multiple eQTL with control for population structure and relatedness
 
-PolyQTL is a statistical method to perform multiple eQTL detection, and it has a control for population structure and relatedness with the
-available genetic relatedness matrix (GRM).
+PolyQTL is a statistical method to perform multiple eQTL detection, and it has a control for population structure and relatedness with the available genetic relatedness matrix (GRM).
 
 This repository contains source code, and sample data, and the step to run it. If you have any questions or comments, please contact bzeng30@gatech.edu or greg.gibson@biology.gatech.edu
 
