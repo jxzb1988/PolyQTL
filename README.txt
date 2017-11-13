@@ -77,4 +77,4 @@ You can run the following command to have a sense of how PolyQTL works.
 
 2. One-step mode
 
-    ./PolyQTL  -o output    -p dataa/CATSPER1.phe  -c 1   -t  1  -x data/CATSPER1.geno -G ./GRM_for_CAGE_1763_individual
+    ./PolyQTL  -o output_PolyQTL    -p data/CATSPER1.phe  -c 1   -t  1  -x data/CATSPER1.geno -G ./GRM_for_CAGE_1763_individual
