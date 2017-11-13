@@ -71,7 +71,7 @@ For genotype dosage, it should be in the format below:
 
 You can run the following command to have a sense of how PolyQTL works.
 
-1. Run in conditional-analysis mode
+1. Conditional-analysis mode
 
     ./PolyQTL          -t  1     -P   data/adjust_adjust_combined_CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_CAGE_1763_individual  -o output_test -Z  data/genotype_CATSPER1
 
