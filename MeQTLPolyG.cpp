@@ -54,7 +54,7 @@ int main( int argc, char *argv[]  ){
         string weight = "";
         string covariate = "";
         string grm_test ="";
-        string gene="";
+        string gene="PolyQTL_output";
         vector<string> grm_file;
         string X_file="";
         string geno_file="";        
@@ -76,7 +76,7 @@ int main( int argc, char *argv[]  ){
 				cout << "-g GAMMA, --gamma		set $gamma$ the prior of a SNP being causal (default 0.01)" << endl;
 				cout << "-c causal			set the maximum number of causal SNPs" << endl;
                                 cout << "-C covariate, --covariate      set the covariate matrix "<<endl;
-                                cout << "-t gene whose abundance, --target      gene name "<<endl;
+                                cout << "-T output folder, --target      gene name "<<endl;
                                 cout << "-G genetic relatedness matrix, --GRM  set the genetic relatedness matrix "<<endl;
 				cout << "-f 1				to out the probaility of different number of causal SNP" << endl;
                                 cout << "-w Weight file, --weight       set the biological annotation to use" << endl;
