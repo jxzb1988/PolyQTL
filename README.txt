@@ -42,5 +42,5 @@ For the phenotype-genotype file, it should be in the format:
 
 You can run the following command to have a sense of how PolyQTL works.
 
-    ./PolyQTL       -c 1   -t  1     -P   data/adjust_adjust_combined_CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_CAGE_1763_individual  -o output_test -Z  data/genotype_CATSPER1
+    ./PolyQTL          -t  1     -P   data/adjust_adjust_combined_CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_CAGE_1763_individual  -o output_test -Z  data/genotype_CATSPER1
 
