@@ -20,7 +20,7 @@ Genetic relatedness matrix (GRM) is needed to used to control for population str
 
 There are two modes to run the package: 1. Conditional analysis. In this mode, conditional analysis was firstly conducted, and in each iteration, mixed linear model component of GEMMA package was used to detect peak signal. For each detected peak signal, all variants locating in high LD (r2>=0.3) were extracted, and sampling of causal states was run to estimate the importance of explored variants; 2. One-step. In this mode, the step to detect peak signal was skipped, and importance of each variant was estimated.
 
-To run PolyQTL, three files are wanted: 1. GRM; 2. phenotype-genotype file plink bfile format for genotype.
+To run PolyQTL, three files are wanted: 1. GRM; 2. phenotype-genotype file plink bfile format for genotype; 3. binary plink format genotype.
 
 For the phenotype-genotype file, it should be in the format: 
 
