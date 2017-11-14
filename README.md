@@ -74,7 +74,6 @@ For genotype dosage, it should be in the format below:
     0	1	1	1
     2	2	2	2
 
-
 ##### Examples
 
 You can run the following command to have a sense of how PolyQTL works.
