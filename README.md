@@ -16,13 +16,13 @@ This repository contains source code, and sample data, and the step to run it. I
 
 Software distributed under the terms of the GNU General Public License as published by the Free Software Foundation.
 
-### Installation
+## Installation
 
 GCC >=4.7.0, C++ library openmp are needed. 
 
 There is a Makefile, and you can just run "make" to install the package.
 
-#### Running
+## Running
 
 Genetic relatedness matrix (GRM) is needed to used to control for population structure and relatedness. You can calculate it with external packages, like GCTA, GEMMA.
 
@@ -75,7 +75,7 @@ For genotype dosage, it should be in the format below:
     0	1	1	1
     2	2	2	2
 
-##### Examples
+## Examples
 
 You can run the following command to have a sense of how PolyQTL works.
 
