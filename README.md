@@ -63,6 +63,7 @@ For one-column phenotype, it should be one-column, and contains the phenotype va
     ......
  
 For genotype dosage, it should be in the format below: 
+
     rs1	rs2	rs3	rs4
     1	2	2	2
     1	1	1	1
