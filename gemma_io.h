@@ -75,4 +75,3 @@ bool ReadFile_gene (const string &file_gene, vector<double> &vec_read, vector<SN
 
 
 
-
