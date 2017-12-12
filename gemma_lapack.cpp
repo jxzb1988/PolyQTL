@@ -36,7 +36,6 @@ extern "C" void dpotrs_(char *UPLO, int *N, int *NRHS, double *A, int *LDA, doub
 extern "C" void dsyev_(char* JOBZ, char* UPLO, int *N, double *A, int *LDA, double *W, double *WORK, int *LWORK, int *INFO);
 extern "C" void dsyevr_(char* JOBZ, char *RANGE, char* UPLO, int *N, double *A, int *LDA, double *VL, double *VU, int *IL, int *IU, double *ABSTOL, int *M, double *W, double *Z, int *LDZ, int *ISUPPZ, double *WORK, int *LWORK, int *IWORK, int *LIWORK, int *INFO);
 
-
 //cholesky decomposition, A is distroyed
 void lapack_float_cholesky_decomp (gsl_matrix_float *A)
 {
