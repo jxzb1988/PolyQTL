@@ -18,7 +18,6 @@
 
 #ifndef __GEMMA_H__                
 #define __GEMMA_H__
-
 #ifdef FORCE_FLOAT
 #include "param_float.h"
 #else
