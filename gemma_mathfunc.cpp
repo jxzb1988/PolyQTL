@@ -47,7 +47,6 @@
 using namespace std;
 
 
-
 //calculate variance of a vector
 double VectorVar (const gsl_vector *v)
 {
