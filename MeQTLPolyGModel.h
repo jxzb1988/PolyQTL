@@ -21,7 +21,6 @@
 using namespace std;
 using namespace arma;
 
- 
 class MeQTLPolyGModel{
 	
 public:
