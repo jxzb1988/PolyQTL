@@ -27,8 +27,6 @@
 
 using namespace std;
 
-
-
 class SNPINFO {
 public:
 	string chr;
