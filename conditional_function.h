@@ -18,8 +18,10 @@
 #include <regex>
 #include <iomanip>
 
+
 using namespace std;
 using namespace arma;
+
 
 void read_table(string data, vector< vector<double> > &test,  vector<string> &ind, vector<string> &variant);
 int match(vector<string> &data, string target);
