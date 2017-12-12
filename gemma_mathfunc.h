@@ -22,7 +22,6 @@
 #include "gsl/gsl_vector.h"
 #include "gsl/gsl_matrix.h"
 
-
 using namespace std;
 
 double VectorVar (const gsl_vector *v);
