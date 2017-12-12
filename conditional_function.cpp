@@ -29,7 +29,6 @@ using namespace arma;
 
 
 
-
 void read_table(string data, vector< vector<double> > &test,  vector<string> &ind, vector<string> &variant)
   {
 //    cout<<"Come into input file to read information"<<endl;
