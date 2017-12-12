@@ -66,12 +66,7 @@ public:
                 this->snpCount      =0;
                 vector<mat> grm;
                 mat cov;
-              //  cout<<"Come to creat mat X"<<endl;
-             //   cout<<"number is: "<<number<<endl;
-             //   cout<<"snpCount is: "<<snpCount<<endl;
-             //   mat X=mat(number, snpCount, fill::zeros);
-             //   import_geno(X_file,X);
-             //   cout<<"X is: "<<X<<endl;
+              
 		calculate_variant_number(X_file, snpCount);
             //    cout<<"Get explored variant number is over"<<endl;
              //   cout<<"snpCount is: "<<snpCount<<endl;
