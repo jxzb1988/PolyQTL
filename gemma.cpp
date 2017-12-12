@@ -33,7 +33,6 @@ void GEMMA::PrintHeader (void)
 {
 }
 
-
 void GEMMA::PrintLicense (void)
 {
 }
