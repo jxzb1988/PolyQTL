@@ -50,7 +50,6 @@
 using namespace std;
 
 
-
 //Print process bar
 void ProgressBar (string str, double p, double total)
 {
