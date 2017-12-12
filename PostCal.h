@@ -11,7 +11,6 @@
 #include <string.h>
 
 #include <armadillo>
-
 #ifndef _UTIL_H
 #define _UTIL_H
 
