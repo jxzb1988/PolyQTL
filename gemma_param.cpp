@@ -36,9 +36,6 @@
 using namespace std;
 
 
-
-
-
 PARAM::PARAM(void):	
 mode_silence (false), a_mode (0), k_mode(1), d_pace (100000),
 file_out("result"), 
