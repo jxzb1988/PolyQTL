@@ -20,7 +20,6 @@
 #define __LAPACK_H__
 
 
-
 using namespace std;
 
 
