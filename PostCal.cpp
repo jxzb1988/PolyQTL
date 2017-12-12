@@ -100,7 +100,7 @@ double PostCal::likelihood(int * configure_x) {
                 }
                s2/=number;
         //       cout<<"s2 is: "<<s2<<endl;
-             mat eVb=xy/sqrt(s2);
+             mat eVb=xy/s2;
         //    cout<<"eVb is: "<<eVb<<endl;
             mat eVg_inv=trans(X_noz)*X_noz/s2;
           //  cout<<"eVg_inv is: "<<eVg_inv(0,0)<<endl;
