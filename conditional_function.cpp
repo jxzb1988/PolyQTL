@@ -28,7 +28,7 @@ using namespace std;
 using namespace arma;
 
 
-
+//Read phe+genotype table
 void read_table(string data, vector< vector<double> > &test,  vector<string> &ind, vector<string> &variant)
   {
 //    cout<<"Come into input file to read information"<<endl;
@@ -40,7 +40,7 @@ void read_table(string data, vector< vector<double> > &test,  vector<string> &in
        b++;
        if(b==1)
         {
-//          cout<<"This is the first column, and contains variant and phenotype name"<<endl;
+
           stringstream ss(a);
           string word;
           ss>>word;
@@ -50,7 +50,7 @@ void read_table(string data, vector< vector<double> > &test,  vector<string> &in
            }
          } else
          {
-//           cout<<"Read dosage and individual information"<<endl;
+
            double c=0;
            stringstream ss(a);
            string waste;
@@ -59,26 +59,21 @@ void read_table(string data, vector< vector<double> > &test,  vector<string> &in
            vector<double> T;
            while(ss && ss>>c)
             {
-//              cout<<"b is: "<<b<<endl;
+
               T.push_back(c);
             }
            test.push_back(T);
          }
       }
 //    cout<<"Read phenotype and genotype finished"<<endl;
-/**    for(int i=0;i<test.size();i++)
-     {
-       for(int j=0;j<test[i].size();j++)
-        {
-          cout<<" "<<test[i][j];
-        }
-       cout<<endl;
-     }
-**/
+
     FHIN1.clear();
     FHIN1.close();
   }
 
+
+
+//Find the index of a specific string in a string vector
 int match(vector<string> &data, string target)
  {
    cout<<"Come into function match"<<endl;
@@ -86,11 +81,7 @@ int match(vector<string> &data, string target)
    
    int j=-1;
    vector<string>::iterator Col;
-//   for(Col=data.begin();Col!=data.end();Col++)
-//    {
-//      cout<<" "<<*Col<<endl;
-//    }
-//   cout<<endl;
+
    for(Col=data.begin();Col!=data.end();Col++)
     {
       j++;
@@ -105,6 +96,7 @@ int match(vector<string> &data, string target)
    return j;
  }
 
+//Calculate the variance inflation factor to determine whether include the explored variant or not
 double calculate_VIF(mat &input,vector<string> &variant,string target,vector<string> &detected)
  {
    cout<<"Come to function calculate_VIF"<<endl;
@@ -117,11 +109,11 @@ double calculate_VIF(mat &input,vector<string> &variant,string target,vector<str
       X_chosen.col(i)=input.col(ind);
     }
    cout<<"Genotype get, and start to calculate VIF"<<endl;
-//   mat stat_test=input.row(res);
+
    mat stat_test=input.col(res);
    mat XtX=trans(X_chosen)*X_chosen;
    mat inv_XtX=pinv(XtX);
-//   mat xy=trans(X_chosen)*stat_test;
+
    mat res_test=inv_XtX*trans(X_chosen)*stat_test;
    mat resi=stat_test-X_chosen*res_test;
    double  phe_variance=stddev(resi.col(0));
@@ -141,7 +133,7 @@ double calculate_VIF(mat &input,vector<string> &variant,string target,vector<str
 
 
 
-
+//read GEMMA result output
 void readgemma(string input, vector < vector<double> > &out_gemma, vector<string> & variant)
  {
    ifstream FHIN(input.c_str(),ios::in);
@@ -180,7 +172,7 @@ void readgemma(string input, vector < vector<double> > &out_gemma, vector<string
  }
 
 
-
+//Attached new residual phenotype, removing effect of detected SNPs, to plink fam file.
 int  updatefam(vector< vector<string> > &input , mat &value,string output)
  {
 //   cout<<"Come into updatefam fucntion"<<endl;
@@ -212,7 +204,7 @@ int  updatefam(vector< vector<string> > &input , mat &value,string output)
 
 
 
-
+//Make a copy of plink bim file
 void copybim(string input, string output)
  {
    ifstream FHIN(input.c_str(),ios::in);
@@ -234,6 +226,7 @@ void copybim(string input, string output)
    FHOU.clear();
  }
 
+//Extract a specific set of variants, and output a new bim file
 void copybim(string input, string output, vector<int> &index)
  {
    ifstream FHIN(input.c_str(),ios::in);
@@ -261,7 +254,7 @@ void copybim(string input, string output, vector<int> &index)
  }
 
 
-
+//Make a copy of fam file
 void copyfam(string input, string output)
  {
    ifstream FHIN(input.c_str(),ios::in);
@@ -288,6 +281,7 @@ void copyfam(string input, string output)
    FHOU.close();
  }
 
+//Make a copy of bed file
 void  outputbed(mat & _snp_2, mat & _snp_1, string &output)
  {
    int i=0, pos=0, j=0;
@@ -331,10 +325,10 @@ void  outputbed(mat & _snp_2, mat & _snp_1, string &output)
    OutBed.close();
  }
 
-
+//Extract a specific set of variants from a bim file 
 void readbim(string file,map<string, int> &order)
  {
-//   cout<<"I am in the function reading bim file and store the information in a map"<<endl;
+
    int ibuf=-1;
    string A;
    string cbuf="0";
@@ -357,6 +351,7 @@ void readbim(string file,map<string, int> &order)
    Bim.close();
  }
 
+//Read a bim file
 void readbim(string file,vector<string>&variant)
  {
 
@@ -381,7 +376,7 @@ void readbim(string file,vector<string>&variant)
  }
 
 
-
+//Read a fam file, and calcuate the individual number 
 int readfam(string file)
  {
    cout<<"Come to estimate individual number"<<endl;
@@ -399,6 +394,8 @@ int readfam(string file)
    cout<<"Finish estimation"<<endl;
    return i;
  }
+
+//Read a fam file and extract phenotype 
 int readfam(string file,vector<double> &pheno, vector< vector<string> > &Fam_infor)
  {
    ifstream Fam(file.c_str());
@@ -424,6 +421,7 @@ int readfam(string file,vector<double> &pheno, vector< vector<string> > &Fam_inf
    Fam.close();
  }
 
+//Read a bim file, and calculate the number of variants
 int readbim(string file)
  {
    int ibuf=0;
@@ -442,6 +440,8 @@ int readbim(string file)
    return ibuf;
  }
 
+
+//Given a r2 cutoff, extract the variants locating in high LD with a specific varaint
 void extractvariant(string input, string output, double r2_cutoff, string target)
  {
     int i=0, j=0, k=0;
@@ -519,9 +519,7 @@ void extractvariant(string input, string output, double r2_cutoff, string target
            }
         }
      }
-//    cout<<"adjusted dosage matrix is: "<<endl;
-//    cout<<dosage<<endl;
-//    cout<<"For missing genotype, mean dosgage was used"<<endl;
+
     map<string,int> order;
     readbim(bimfile,order);
     map<string,int>::iterator Ite; 
@@ -573,7 +571,7 @@ void extractvariant(string input, string output, double r2_cutoff, string target
     BIT.close();
  }
 
-
+//Make a copy of plink bed file
 void copybed(string input, string output)
  {
     cout<<"Come into copybed function"<<endl;
@@ -582,8 +580,7 @@ void copybed(string input, string output)
     string strbim="bim";
     string famfile=input;
     string bimfile=input;
-//    cout<<"famfile is: "<<famfile<<endl;
-//    cout<<"bimfile is: "<<bimfile<<endl;
+
     famfile.replace(famfile.end()-3,famfile.end(),strfam);
     bimfile.replace(bimfile.end()-3,bimfile.end(),strbim);
     int nsnp=readbim(bimfile);
@@ -622,11 +619,11 @@ void copybed(string input, string output)
     BIT.close();
  }
 
-//int main(int argc,char *argv[])
 
 
 
 
+//If the phenotype and genotype are in plink format, convert it to dosage manner
 void prepare_geno_phe(string input, string X_file, string YFile)
  {
    cout<<"Come into function to prepare genotype and phenotype"<<endl;
@@ -732,16 +729,18 @@ void prepare_geno_phe(string input, string X_file, string YFile)
    outfile2.close();
 
  }
+
+//Just for test
 int conditional_analysis(string input,string gene, int totalCausalSNP,float rho, bool histFlag)
  {
    cout<<"test"<<endl;
  }
+
+
+//Perform conditional analysis to detect peak signal
 int conditional_analysis(string file, string gene, int totalCausalSNP,float rho, bool histFlag, double gamma,string weight, int nthread,string covariate, vector <string> &grm_file,string outputFile,string geno_file)
  {
-//   string file;
-//   file=argv[1];
-//   string gene;
-//   gene=argv[2];
+
    vector< vector<double> >  Data;
    vector<string> ind;
    vector<string> variant;
@@ -781,17 +780,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
    double cutoff=0.00001;
    cout<<"It is safe"<<endl;
    cout<<"Output individuals"<<endl;
-//   for(int i=0;i<ind.size();i++)
-//    {
-//      cout<<" "<<ind[i];
-//    }
-//   cout<<endl;
-//   cout<<"Output variants"<<endl;
-//   for(int i=0;i<variant.size();i++)
-//    {
-//      cout<<" "<<variant[i];
-//    }
-//   cout<<endl;
+
    cout<<"j is: "<<j<<endl;
    for(int t=0;t<j;t++)
     {
@@ -811,8 +800,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
          variant1.push_back(variant[i]);
        }
       string bed_file=string("probe")+to_string(t);
-//      string geno_file=gene+"/genotype_"+gene;
-//      string geno_file=gene+"/genotype_"+gene;
+
       cout<<"Copy genotype to each probe"<<endl;
       cout<<"Copy bed file"<<endl;
       copybed(geno_file+".bed",gene+"/"+bed_file+".bed");
@@ -820,8 +808,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
       copyfam(geno_file+".fam",gene+"/"+bed_file+".fam");
       cout<<"Copy bim file"<<endl;
       copybim(geno_file+".bim",gene+"/"+bed_file+".bim");
-//      cout<<"Extract  variants locating in high LD with target variant"<<endl;
-//      extractvariant(gene+"/"+bed_file+".bed", gene+"/"+bed_file+"_high_LD.bed", 0.3, "rs4930325");
+
       string fam=gene+"/"+bed_file+".fam";
       vector<double>  pheno;
       vector < vector<string> > fam_infor;
@@ -863,7 +850,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
 //         cGemma.Assign(argc, argv, cPar);
          string str=gene+"/"+bed_file;
          cPar.file_bfile=str;
-//         str.assign("/nv/hp10/bzeng30/data2/CAGE/genotypes/GRM_calculation2/output/extract_individuals/test/GRM_for_CAGE_1763_individual");
+
          str.assign(grm_file[0]);
          cPar.file_kin=str;
          str.assign(file_gemma_out);
@@ -876,8 +863,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
          cout<<"GEMMA running is over"<<endl;
 
 
-//         cout<<"file_gemma_out is: "<<file_gemma_out<<endl;
-//         gemma(gene+"/"+bed_file,file_gemma_out,"/nv/hp10/bzeng30/scratch/zengbiao/data/Framingham/genotype/conduct_imputation/merge_imputation_results/calculate_GRM/output/kinship_relation_of_CAGE_missing_5_filter.sXX.txt");
+
          string file_gemma=string("./output")+"/output_of_GEMMA_"+gene+".assoc.txt";
          cout<<"Output of gemma is: "<<file_gemma<<endl;
          vector< vector<double> > Out_gemma;
@@ -891,8 +877,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
                out_gemma(i,j)=Out_gemma[i][j];
              }
           }
-//         cout<<"Matrix for gemma output is: "<<endl;
-//         cout<<out_gemma<<endl;
+
          int target_gemma  =index_min(out_gemma.col(1));
          cout<<"position for detected SNP is: "<<target_gemma<<endl;
          cout<<"detected SNP in GEMMA is: "<<Out_gemma_variant[target_gemma]<<endl;
@@ -1045,8 +1030,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
                   MeQTLPoly.run();
                   MeQTLPoly.finishUp();
 
-//                  res=col1[t]+" "+col1[target]+" "+to_string(p_target)+" "+to_string(beta_target);
-//                  cout<<"res is: "<<res<<endl;
+
                   out_test=out_test+"\n"+res;
                   cout<<"Get residuals and save it to fam file"<<endl;
                   cout<<"beta value is: "<<beta_target<<endl;
@@ -1059,7 +1043,7 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
                   bi++;
                   left.push_back(col1[target]);
                   col1.erase(col1.begin()+target);
-//                  data1.shed_row(target);
+
                   len--;
                   if(len<=0)
                    {
@@ -1087,15 +1071,12 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
                   out_test=res;
                   cout<<"Get residuals and save it to fam file"<<endl;
                   cout<<"beta value is: "<<beta_target<<endl;
-//                  fam_file.col(0)=fam_file.col(0)- beta_target*data1.col(target);
-//                  fam_file.col(0)=fam_file.col(0)- beta_target*data.col(target+j-1);
+
                   fam_file.col(0)=fam_file.col(0)- beta_target*data1.col(target);
                   updatefam(fam_infor,fam_file,fam);
                   string fam_file_out=fam+"_adjust";
                   fam_file_test=fam+"_"+to_string(num_rev);
-//                  updatefam(fam_infor,fam_file,fam_file_test);
-//                  updatefam(fam_infor,fam_file,fam_file_out);
-//                  updatefam(fam_infor,fam_file,fam);
+
                   data1.shed_col(target);
                   bi++;
                   left.push_back(col1[target]);
