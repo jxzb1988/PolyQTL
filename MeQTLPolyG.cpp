@@ -142,29 +142,31 @@ int main( int argc, char *argv[]  ){
         cout<<"input is: "<<input<<endl;
         cout<<"gene is: "<<gene<<endl;
         
-        ifstream check_dir(gene);
-        if (!check_dir) {
-                mkdir(gene.c_str(), S_IRWXU|S_IRGRP|S_IROTH);
-        }
-
+       
         ifstream check_dir2("output/");
         if (!check_dir2) {
                 mkdir("output", S_IRWXU|S_IRGRP|S_IROTH);
         }
 
 
-//        return 0;
+//If input is setting, run in conditional analysis mode
         if(input!="")
          {
            cout<<"input is: "<<input<<endl;
            cout<<"gene is: "<<gene<<endl;
            cout<<"Perform conditional analysis"<<endl;
+	   ifstream check_dir(gene);
+           if (!check_dir) {
+                mkdir(gene.c_str(), S_IRWXU|S_IRGRP|S_IROTH);
+        }
+
 //           conditional_analysis(input,gene, totalCausalSNP,rho, histFlag, gamma,weight, nthread,covariate, grm_file);
            conditional_analysis(input,gene, totalCausalSNP,rho, histFlag, gamma,weight, nthread,covariate, grm_file,outputFileName, geno_file);                     
            //  conditional_analysis(input,gene, totalCausalSNP,rho, histFlag);
            return 0;
          } else
          {
+	   //Run in one-step mode
            MeQTLPolyGModel  MeQTLPoly(yFile, outputFileName, totalCausalSNP,rho, histFlag, gamma,weight, nthread,covariate, grm_file,X_file);
 	   MeQTLPoly.run();
 	   MeQTLPoly.finishUp();		
