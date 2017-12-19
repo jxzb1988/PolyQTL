@@ -23,6 +23,8 @@ string PostCal::convertConfig2String(int * config, int size) {
 			result+= "_" + convertInt(i);
 	return result;
 }
+
+//Calculate the likelihood of each causal state.
 double PostCal::likelihood(int * configure_x) {
 	int causalCount = 0;
 	int index_C = 0;
@@ -41,26 +43,13 @@ double PostCal::likelihood(int * configure_x) {
 		res = res - baseValue;
 		return( exp(-res/2)/sqrt(abs(matDet)) );
 	}
-//	mat U(snpCount, causalCount, fill::zeros);
-//	mat V(causalCount, snpCount, fill::zeros);
-//	mat VU(causalCount, causalCount, fill::zeros);
+
         vector<int> noz;
 	for(int i = 0; i < snpCount; i++) {
                 if (configure_x[i] == 0)	continue;
                 else {
                         noz.push_back(i);
-         //               if(index_C+1>causalCount)
-          //               {
-           //              }
-            //            for(int j = 0; j < snpCount; j++){ 
-                              
-              //                  U(j, index_C) = sigmaMatrix(j,i);
-                //        }
-		//	V(index_C, i) = NCP;
-                  //      if(configure_x[i] == 1)
-                    //     {
-                      //     index_C++;
-                        // }
+        
                 }
         }
         mat X_noz=mat(number,noz.size(),fill::zeros);
@@ -71,8 +60,7 @@ double PostCal::likelihood(int * configure_x) {
               X_noz(j,i)=X(j,noz[i]);
             }
          }
-//        cout<<"Genotype for causal variants: "<<X_noz<<endl;
-//        cout<<"Phenotype is: "<<stat<<endl;
+
         double inv_ve=10.0;
         vector<double> test;
         vector<double> test_tmplogDet;
@@ -126,6 +114,8 @@ double PostCal::likelihood(int * configure_x) {
       return(res/int(1+(end-start)/win));
 }
 
+
+//Scan for each causal state, and store them in a vecotr, used in parallel manner
 int PostCal::nextBinary(int * data, int size) {
 	int i = 0;
 	int total_one = 0;	
