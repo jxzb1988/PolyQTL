@@ -24,7 +24,7 @@ There is a Makefile, and you can just run "make" to install the package.
 
 ## Running
 
-Genetic relatedness matrix (GRM) is needed to used to control for population structure and relatedness. You can calculate it with external packages, like GCTA, GEMMA.
+Genetic relatedness matrix (GRM) is needed to be used to control for population structure and relatedness. You can calculate it with external packages, like GCTA, GEMMA.
 
 There are two modes to run the package: 1. Conditional analysis. In this mode, conditional analysis was firstly conducted, and in each iteration, mixed linear model component of GEMMA package was used to detect peak signal. For each detected peak signal, all variants locating in high LD (r2>=0.3) were extracted, and sampling of causal states was run to estimate the importance of explored variants; 2. One-step. In this mode, the step to detect peak signal was skipped, and importance of each variant was estimated.
 
