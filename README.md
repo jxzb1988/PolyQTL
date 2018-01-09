@@ -81,8 +81,12 @@ You can run the following command to have a sense of how PolyQTL works.
 
 1. Conditional-analysis mode
 
-    ./PolyQTL          -t  1     -P   data/conditional_analysis/CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
-
+   ./PolyQTL          -t  1     -P   data/conditional_analysis/CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
+   
+   In this simulation, two variants rs11227309 rs77836214 were chosen to be causal variants, and explain 4%~8% of phenotype variance. Heritability was set to be 0.6, and Fst=0.2 
+ 
 2. One-step mode
 
     ./PolyQTL  -o output_PolyQTL    -p data/one-step/CATSPER1.phe  -c 1   -t  1  -x data/one-step/CATSPER1.geno -G ./GRM_for_1000G_1843_individual
+    
+   In this simulation, one variant, rs11227309 was chosen to be causal and explains 5% of the phenotype variance. Heritability was set to be 0.6, and Fst=0.2. 
