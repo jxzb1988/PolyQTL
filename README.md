@@ -79,6 +79,8 @@ For genotype dosage, it should be in the format below:
 
 You can run the following command to have a sense of how PolyQTL works.
 
+Before running the command, pleas unzip the GRM file: unzip data/conditional_analysis/GRM_for_1000G_1843_individual.zip, unzip data/one-step/GRM_for_1000G_1843_individual.zip
+
 1. Conditional-analysis mode
 
    ./PolyQTL          -t  1     -P   data/conditional_analysis/CATSPER1_genotype_phenotype  -T  CATSPER1  -G data/conditional_analysis/GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
