@@ -81,8 +81,8 @@ You can run the following command to have a sense of how PolyQTL works.
 
 1. Conditional-analysis mode
 
-    ./PolyQTL          -t  1     -P   data/adjust_adjust_combined_CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_CAGE_1763_individual  -o output_test -Z  data/genotype_CATSPER1
+    ./PolyQTL          -t  1     -P   data/conditional_analysis/CATSPER1_genotype_phenotype  -T  CATSPER1  -G ./GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
 
 2. One-step mode
 
-    ./PolyQTL  -o output_PolyQTL    -p data/CATSPER1.phe  -c 1   -t  1  -x data/CATSPER1.geno -G ./GRM_for_CAGE_1763_individual
+    ./PolyQTL  -o output_PolyQTL    -p data/one-step/CATSPER1.phe  -c 1   -t  1  -x data/one-step/CATSPER1.geno -G ./GRM_for_1000G_1843_individual
