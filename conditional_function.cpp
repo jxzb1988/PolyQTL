@@ -158,11 +158,23 @@ void readgemma(string input, vector < vector<double> > &out_gemma, vector<string
          ss>>B;
        }
       double test;
+      double test1;
+      double test2;
       ss>>test;
       Y.push_back(test);
-      ss>>test;
-      ss>>test;
-      ss>>test;
+      ss>>test1;
+      ss>>test2;
+      ss>>test2;
+      Y.push_back(test2);
+      test=test/test1;
+      if(test<0)
+       {
+         test=-test;
+       }
+
+     // ss>>test;
+     // ss>>test;
+     // ss>>test;
       Y.push_back(test);
       out_gemma.push_back(Y);
     }
@@ -878,7 +890,8 @@ int conditional_analysis(string file, string gene, int totalCausalSNP,float rho,
              }
           }
 
-         int target_gemma  =index_min(out_gemma.col(1));
+      //   int target_gemma  =index_min(out_gemma.col(1)); 
+         int target_gemma  =index_max(out_gemma.col(2));
          cout<<"position for detected SNP is: "<<target_gemma<<endl;
          cout<<"detected SNP in GEMMA is: "<<Out_gemma_variant[target_gemma]<<endl;
          target=match(col1,Out_gemma_variant[target_gemma]);
