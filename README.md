@@ -1,16 +1,10 @@
-
-
-![](https://github.com/jxzb1988/PolyQTL/blob/master/image/Structure_PolyQTL.png)
-
-![](https://github.gatech.edu/bzeng30/PolyQTL/blob/master/image/Structure_PolyQTL.png)
-
 # PolyQTL: A Bayesian method to detect multiple eQTL with control for population structure and relatedness
 
 PolyQTL is a statistical method to perform multiple eQTL detection, and it has a control for population structure and relatedness with the available genetic relatedness matrix (GRM).
 
 This repository contains source code, and sample data, and the step to run it. If you have any questions or comments, please contact bzeng30@gatech.edu or greg.gibson@biology.gatech.edu
 
-
+![](https://github.com/jxzb1988/PolyQTL/blob/master/image/Structure_PolyQTL.png)
 
 ## License
 
@@ -20,7 +14,7 @@ Software distributed under the terms of the GNU General Public License as publis
 
 GCC >=4.7.0, C++ library openmp are needed. 
 
-There is a Makefile, and you can just run "make" to install the package.
+There is a Makefile, and you can just run `make` to install the package.
 
 ## Running
 
@@ -83,12 +77,13 @@ Before running the command, pleas unzip the GRM file: unzip data/conditional_ana
 
 1. Conditional-analysis mode
 
-   ./PolyQTL          -t  1     -P   data/conditional_analysis/CATSPER1_genotype_phenotype  -T  CATSPER1  -G data/conditional_analysis/GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
-   
+```
+./PolyQTL -t 1 -P   data/conditional_analysis/CATSPER1_genotype_phenotype -T CATSPER1 -G data/conditional_analysis/GRM_for_1000G_1843_individual  -o output_test -Z  data/conditional_analysis/genotype_CATSPER1
+```   
    In this simulation, two variants rs11227309 rs77836214 were chosen to be causal variants, and explain 4%~8% of phenotype variance. Heritability was set to be 0.6, and Fst=0.2 
  
 2. One-step mode
-
-    ./PolyQTL  -o output_PolyQTL    -p data/one-step/CATSPER1.phe  -c 1   -t  1  -x data/one-step/CATSPER1.geno -G data/one-step/GRM_for_1000G_1843_individual
-    
+```
+./PolyQTL -o output_PolyQTL -p data/one-step/CATSPER1.phe -c 1 -t  1  -x data/one-step/CATSPER1.geno -G data/one-step/GRM_for_1000G_1843_individual
+```    
    In this simulation, one variant, rs11227309 was chosen to be causal and explains 5% of the phenotype variance. Heritability was set to be 0.6, and Fst=0.2. 
