@@ -235,7 +235,7 @@ void copybim(string input, string output)
    FHIN.clear();
    FHOU.clear();
    FHIN.close();
-   FHOU.clear();
+   FHOU.close();
  }
 
 //Extract a specific set of variants, and output a new bim file
@@ -262,7 +262,7 @@ void copybim(string input, string output, vector<int> &index)
    FHIN.clear();
    FHOU.clear();
    FHIN.close();
-   FHOU.clear();
+   FHOU.close();
  }
 
 
