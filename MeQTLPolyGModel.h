@@ -280,6 +280,7 @@ public:
                //  mat ran=randu<mat>(1,1);
                //  X(j,i)=0.05*ran(0,0);
                }
+	      num_test=y;
               if(row.size()>0)
                {
                  for(int x_t=0;x_t<row.size();x_t++)
