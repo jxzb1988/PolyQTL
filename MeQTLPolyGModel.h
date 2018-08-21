@@ -276,6 +276,12 @@ public:
               mean/=number;
               for(int j=0;j<x;j++)
                {
+		 if(X(j,i)==-999)
+                  {
+                    X(j,i)=0;
+                    continue;
+                  }
+    
                  X(j,i)-=mean;
                //  mat ran=randu<mat>(1,1);
                //  X(j,i)=0.05*ran(0,0);
@@ -283,15 +289,15 @@ public:
 	      num_test=y;
               if(row.size()>0)
                {
-                 for(int x_t=0;x_t<row.size();x_t++)
-                  {
-                    int j_t=int(row[x_t]/num_test);
-                    int i_t=int(row[x_t]%num_test);
-                    if(i_t==i)
-                     {
-                       X(j_t,i_t)=0;
-                     }
-                  }
+       //          for(int x_t=0;x_t<row.size();x_t++)
+       //           {
+       //             int j_t=int(row[x_t]/num_test);
+       //             int i_t=int(row[x_t]%num_test);
+       //             if(i_t==i)
+       //              {
+       //                X(j_t,i_t)=0;
+       //              }
+        //          }
                }
             }
      
